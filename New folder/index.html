@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koerte Hooldusteenus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #ffd700;
+            padding: 20px;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #000;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        main {
+            margin: 20px auto;
+            max-width: 600px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .selector, .color-picker {
+            margin-bottom: 20px;
+        }
+
+        #dog-preview {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 300px; /* Kõrgus, et koera pilt jääks paika */
+            width: 100%;
+            overflow: hidden; /* Peidab väljaulatuvad osad */
+        }
+
+        .dog-image {
+            width: 300px;
+            height: auto;
+            display: none;
+            position: absolute;
+            top: 0; /* Tagame, et koer on ülemises osas */
+            left: 50%; /* Paigutame koera keskele */
+            transform: translateX(-50%); /* Keskendamine */
+            transition: left 2s ease, top 2s ease;
+        }
+
+        .dog-image.active {
+            display: block;
+        }
+
+        #special-text {
+            font-size: 50px;
+            color: red;
+            text-align: center;
+            margin-top: 10px; /* Väike vahe koera pildi ja teksti vahel */
+            display: none;
+        }
+
+        .accordion {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .accordion h3 {
+            cursor: pointer;
+            padding: 10px;
+            margin: 0;
+            background: #ffd700;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .accordion .content {
+            display: none;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            border-top: none;
+        }
+
+        .pricing {
+            margin-top: 20px;
+            text-align: left;
+            padding: 10px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
+        option {
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Koerte Hooldusteenus</h1>
+        <p>Aja broneerimiseks helistage 58415157</p>
+        <p>Vali hooldus, vaata eelvaadet ja tutvu hinnakirjaga!</p>
+    </header>
+
+    <main>
+        <div class="selector">
+            <label for="dog-breed">Vali koeratõug:</label>
+            <select id="dog-breed">
+                <option value="labrador">Labrador</option>
+                <option value="husky">Siberi husky</option>
+                <option value="poodle">Puudel</option>
+            </select>
+        </div>
+
+        <div class="color-picker">
+            <label for="dog-color">Vali värv:</label>
+            <select id="dog-color">
+                <option value="none">Loomulik</option>
+                <option value="grayscale(1) brightness(0.5)">Must</option>
+                <option value="brightness(1.8)">Valge</option>
+                <option value="sepia(1) saturate(3) hue-rotate(0deg)">Punane</option>
+                <option value="sepia(1) saturate(3) hue-rotate(90deg)">Roheline</option>
+                <option value="sepia(1) saturate(3) hue-rotate(180deg)">Sinine</option>
+                <option value="sepia(1) saturate(3) hue-rotate(60deg)">Kollane</option>
+                <option value="sepia(1) saturate(3) hue-rotate(30deg)">Oranž</option>
+                <option value="sepia(1) saturate(3) hue-rotate(270deg)">Lilla</option>
+                <option value="grayscale(1) brightness(0.8)">Hall</option>
+                <option value="sepia(1) saturate(2) contrast(1.5)">Pruun</option>
+            </select>
+        </div>
+
+        <!-- Koera pilt ja värvi valik -->
+        <div id="dog-preview">
+            <img src="images/labrador.png" id="labrador" class="dog-image active" alt="Labrador">
+            <img src="images/husky.png" id="husky" class="dog-image" alt="Husky">
+            <img src="images/poodle.png" id="poodle" class="dog-image" alt="Puudel">
+        </div>
+
+        <div id="special-text">GAYYYYY</div>
+
+        <div class="accordion">
+            <h3>Hinnakiri (klõpsa avamiseks)</h3>
+            <div class="content">
+                <p><strong>Pügamine:</strong> Koera stiilne pügamine, et ta näeks välja nagu moelooja lemmik. <strong>150€</strong></p>
+                <p><strong>Massaaž:</strong> Looduslik lõõgastus ja rahu, koer saab kogeda tõelist spa! <strong>90€</strong></p>
+                <p><strong>Kutsika tantsutund:</strong> Spetsiaalne koreograafia, et koer saaks oma tantsuliikumisi lihvida! <strong>70€</strong></p>
+                <p><strong>Koerte spaa:</strong> Koer saab lõõgastuda, maskide ja massaažide abil — iga koera unistus! <strong>100€</strong></p>
+                <p><strong>Soojendav soeng:</strong> Eriline lõige, et koer saaks külmal talvehooajal stiilselt üle elada. <strong>110€</strong></p>
+                <p><strong>Koera mänguväljak:</strong> Mängud ja harjutused koera vaimse ja füüsilise tervise huvides. <strong>85€</strong></p>
+                <p><strong>Hiirjahood:</strong> Kõik väikesed loomalikud olendid, koer on valmis nendele jahtima. <strong>40€</strong></p>
+                <p><strong>Kõrvamassaaž:</strong> Kõik koerad armastavad õrna massaaži, et lõõgastuda. <strong>60€</strong></p>
+                <p><strong>Talvehooldus:</strong> Koera talvehooldus, et talvel oleks ta alati soe ja armsalt paksudest juustest kaetud. <strong>80€</strong></p>
+                <p><strong>Koerte festival:</strong> Iga-aastane koerte pidu, kus iga koer saab end tunda tähe all! <strong>150€</strong></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Koerte Hooldusteenus. Kõik õigused kaitstud.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
